@@ -13,6 +13,9 @@
 		3D625C5B21981E310083923F /* CacheExpiry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D625C5A21981E310083923F /* CacheExpiry.swift */; };
 		3D625C5D219820150083923F /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D625C5C219820150083923F /* JournalEntry.swift */; };
 		3D625C5F2198206C0083923F /* CacheState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D625C5E2198206C0083923F /* CacheState.swift */; };
+		3D625C61219825C30083923F /* NSLruCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D625C60219825C30083923F /* NSLruCache.swift */; };
+		3D625C632198260A0083923F /* FileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D625C622198260A0083923F /* FileRepository.swift */; };
+		3D625C65219826BB0083923F /* FileRepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D625C64219826BB0083923F /* FileRepositoryImp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,9 @@
 		3D625C5A21981E310083923F /* CacheExpiry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheExpiry.swift; sourceTree = "<group>"; };
 		3D625C5C219820150083923F /* JournalEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
 		3D625C5E2198206C0083923F /* CacheState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheState.swift; sourceTree = "<group>"; };
+		3D625C60219825C30083923F /* NSLruCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLruCache.swift; sourceTree = "<group>"; };
+		3D625C622198260A0083923F /* FileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileRepository.swift; sourceTree = "<group>"; };
+		3D625C64219826BB0083923F /* FileRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileRepositoryImp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +83,11 @@
 		3D625C3F21981B1E0083923F /* NSLruCache */ = {
 			isa = PBXGroup;
 			children = (
-				3D625C5921981DE20083923F /* Internal */,
+				3D625C6721983D3E0083923F /* Core */,
+				3D625C6621983D320083923F /* Journal */,
 				3D625C4021981B1E0083923F /* NSLruCache.h */,
 				3D625C4121981B1E0083923F /* Info.plist */,
-				3D625C5A21981E310083923F /* CacheExpiry.swift */,
-				3D625C5C219820150083923F /* JournalEntry.swift */,
-				3D625C5E2198206C0083923F /* CacheState.swift */,
+				3D625C60219825C30083923F /* NSLruCache.swift */,
 			);
 			path = NSLruCache;
 			sourceTree = "<group>";
@@ -96,11 +101,23 @@
 			path = NSLruCacheTests;
 			sourceTree = "<group>";
 		};
-		3D625C5921981DE20083923F /* Internal */ = {
+		3D625C6621983D320083923F /* Journal */ = {
 			isa = PBXGroup;
 			children = (
+				3D625C5A21981E310083923F /* CacheExpiry.swift */,
+				3D625C5C219820150083923F /* JournalEntry.swift */,
+				3D625C5E2198206C0083923F /* CacheState.swift */,
 			);
-			path = Internal;
+			path = Journal;
+			sourceTree = "<group>";
+		};
+		3D625C6721983D3E0083923F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3D625C622198260A0083923F /* FileRepository.swift */,
+				3D625C64219826BB0083923F /* FileRepositoryImp.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,7 +231,10 @@
 			files = (
 				3D625C5F2198206C0083923F /* CacheState.swift in Sources */,
 				3D625C5D219820150083923F /* JournalEntry.swift in Sources */,
+				3D625C65219826BB0083923F /* FileRepositoryImp.swift in Sources */,
 				3D625C5B21981E310083923F /* CacheExpiry.swift in Sources */,
+				3D625C61219825C30083923F /* NSLruCache.swift in Sources */,
+				3D625C632198260A0083923F /* FileRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
