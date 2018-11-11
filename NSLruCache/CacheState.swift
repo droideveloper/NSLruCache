@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum CacheState {
+public enum CacheState: Int, Codable {
 	case valid
 	case dirty
 	case invalid
