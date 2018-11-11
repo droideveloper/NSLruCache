@@ -8,8 +8,14 @@
 
 import Foundation
 
-public enum CacheExpiry {
-	case never
-	case seconds(TimeInterval)
-	case time(Date)
+public struct CacheExpiry: Codable {
+	
+	public var expiry: Expiry
+	public var interval: Date
+	
+	public enum Expiry: Int, Codable {
+		case never
+		case seconds
+		case date
+	}
 }

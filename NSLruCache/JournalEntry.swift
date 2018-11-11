@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct JournalEntry {
+public struct JournalEntry: Codable {
 	
 	public var expiry: CacheExpiry
 	public var state: CacheState
