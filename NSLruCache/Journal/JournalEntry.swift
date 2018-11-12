@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct JournalEntry: Codable {
+struct JournalEntry: Hashable, Equatable, Codable {
 	
 	var expiry: CacheExpiry
 	var state: CacheState
@@ -23,5 +23,14 @@ struct JournalEntry: Codable {
 												state: state ?? self.state,
 												hash: hash ?? self.hash,
 												size: size ?? self.size)
+	}
+	
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(hash)
+		hasher.combine(size)
+	}
+	
+	static func == (lhs: JournalEntry, rhs: JournalEntry) -> Bool {
+		return lhs.hash == rhs.hash && lhs.size == rhs.size
 	}
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D1329DD2199BC40001605B9 /* NSError+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1329DC2199BC40001605B9 /* NSError+Extension.swift */; };
+		3D1329DF2199BC6B001605B9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1329DE2199BC6B001605B9 /* String+Extension.swift */; };
+		3D3B63A7219880D0000D0867 /* NSLruCacheStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3B63A6219880D0000D0867 /* NSLruCacheStrategy.swift */; };
 		3D625C4721981B1E0083923F /* NSLruCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D625C3D21981B1E0083923F /* NSLruCache.framework */; };
 		3D625C4C21981B1E0083923F /* NSLruCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D625C4B21981B1E0083923F /* NSLruCacheTests.swift */; };
 		3D625C4E21981B1E0083923F /* NSLruCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D625C4021981B1E0083923F /* NSLruCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -14,8 +17,6 @@
 		3D625C5D219820150083923F /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D625C5C219820150083923F /* JournalEntry.swift */; };
 		3D625C5F2198206C0083923F /* CacheState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D625C5E2198206C0083923F /* CacheState.swift */; };
 		3D625C61219825C30083923F /* NSLruCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D625C60219825C30083923F /* NSLruCache.swift */; };
-		3D625C632198260A0083923F /* FileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D625C622198260A0083923F /* FileRepository.swift */; };
-		3D625C65219826BB0083923F /* FileRepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D625C64219826BB0083923F /* FileRepositoryImp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D1329DC2199BC40001605B9 /* NSError+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+Extension.swift"; sourceTree = "<group>"; };
+		3D1329DE2199BC6B001605B9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		3D3B63A6219880D0000D0867 /* NSLruCacheStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLruCacheStrategy.swift; sourceTree = "<group>"; };
 		3D625C3D21981B1E0083923F /* NSLruCache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NSLruCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D625C4021981B1E0083923F /* NSLruCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSLruCache.h; sourceTree = "<group>"; };
 		3D625C4121981B1E0083923F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -39,8 +43,6 @@
 		3D625C5C219820150083923F /* JournalEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
 		3D625C5E2198206C0083923F /* CacheState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheState.swift; sourceTree = "<group>"; };
 		3D625C60219825C30083923F /* NSLruCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLruCache.swift; sourceTree = "<group>"; };
-		3D625C622198260A0083923F /* FileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileRepository.swift; sourceTree = "<group>"; };
-		3D625C64219826BB0083923F /* FileRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileRepositoryImp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D1329DB2199BC2B001605B9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3D1329DC2199BC40001605B9 /* NSError+Extension.swift */,
+				3D1329DE2199BC6B001605B9 /* String+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		3D625C3321981B1E0083923F = {
 			isa = PBXGroup;
 			children = (
@@ -83,11 +94,12 @@
 		3D625C3F21981B1E0083923F /* NSLruCache */ = {
 			isa = PBXGroup;
 			children = (
-				3D625C6721983D3E0083923F /* Core */,
+				3D1329DB2199BC2B001605B9 /* Extension */,
 				3D625C6621983D320083923F /* Journal */,
 				3D625C4021981B1E0083923F /* NSLruCache.h */,
 				3D625C4121981B1E0083923F /* Info.plist */,
 				3D625C60219825C30083923F /* NSLruCache.swift */,
+				3D3B63A6219880D0000D0867 /* NSLruCacheStrategy.swift */,
 			);
 			path = NSLruCache;
 			sourceTree = "<group>";
@@ -109,15 +121,6 @@
 				3D625C5E2198206C0083923F /* CacheState.swift */,
 			);
 			path = Journal;
-			sourceTree = "<group>";
-		};
-		3D625C6721983D3E0083923F /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				3D625C622198260A0083923F /* FileRepository.swift */,
-				3D625C64219826BB0083923F /* FileRepositoryImp.swift */,
-			);
-			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,11 +233,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D625C5F2198206C0083923F /* CacheState.swift in Sources */,
+				3D1329DF2199BC6B001605B9 /* String+Extension.swift in Sources */,
 				3D625C5D219820150083923F /* JournalEntry.swift in Sources */,
-				3D625C65219826BB0083923F /* FileRepositoryImp.swift in Sources */,
 				3D625C5B21981E310083923F /* CacheExpiry.swift in Sources */,
+				3D3B63A7219880D0000D0867 /* NSLruCacheStrategy.swift in Sources */,
 				3D625C61219825C30083923F /* NSLruCache.swift in Sources */,
-				3D625C632198260A0083923F /* FileRepository.swift in Sources */,
+				3D1329DD2199BC40001605B9 /* NSError+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
