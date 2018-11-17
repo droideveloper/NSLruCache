@@ -36,8 +36,22 @@ public class NSLruCache {
 		self.cacheJournalFile = cacheDirectory?.appendingPathComponent("journal.jrl")
 		self.cacheImagesDirectory = cacheDirectory?.appendingPathComponent("images", isDirectory: true)
 		// read journal
+		queue.sync { [weak weakSelf = self] in
+			do {
+				if let url = weakSelf?.cacheJournalFile {
+					weakSelf?.entries = try read(url: url, type: [JournalEntry].self)
+				}
+				for key in weakSelf?.entries ?? [] {
+					if let url = weakSelf?.cacheImagesDirectory?.appendingPathComponent("\(key.hash).jrl") {
+					  let data = try Data(contentsOf: url)
+						memory[key] = UIImage(data: data)
+					}
+ 				}
+			} catch {
+				// TODO Log if build type is DEBUG
+			}
+		}
 	}
-	
 	
 	private func write<T>(url: URL, data: T) throws where T: Codable {
 		if fileManager.fileExists(atPath: url.path) {
@@ -55,5 +69,39 @@ public class NSLruCache {
 			throw NSError.create("io error occured while reading file at \(url.path)", code: 401)
 		}
 		throw NSError.create("We could not find jorunal file at \(url.path)", code: 404)
+	}
+	
+	private func persist() throws {
+		for (key, value) in memory {
+			if let url = cacheImagesDirectory?.appendingPathComponent("\(key.hash).jrl") {
+				if key.state == .dirty || key.state == .invalid {
+					if fileManager.fileExists(atPath: url.path) {
+						memory.removeValue(forKey: key)
+						try fileManager.removeItem(at: url)
+					}
+					if key.state == .dirty {
+						let k = key.copy(state: .valid)
+						memory[k] = value
+						if let data = value.pngData() {
+							try data.write(to: url)
+						} else if let data = value.jpegData(compressionQuality: 1.0) {
+							try data.write(to: url)
+						}
+					}
+				} else if key.state == .valid {
+					if !fileManager.fileExists(atPath: url.path) {
+						if let data = value.pngData() {
+							try data.write(to: url)
+						} else if let data = value.jpegData(compressionQuality: 1.0) {
+							try data.write(to: url)
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	deinit {
+		
 	}
 }
