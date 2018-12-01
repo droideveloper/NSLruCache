@@ -48,7 +48,7 @@ public class NSLruCache {
 					}
  				}
 			} catch {
-				// TODO Log if build type is DEBUG
+				// TODO Log if build type is DEBUG we try to
 			}
 		}
 	}
@@ -102,6 +102,6 @@ public class NSLruCache {
 	}
 	
 	deinit {
-		
+		// need to improve this by change and other concepts
 	}
 }
